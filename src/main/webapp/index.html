@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary</title>
+</head>
+<body>
+<h1>Summary</h1>
+<p>Free money: <span th:text="${freeMoney}"></span></p>
+
+<h2>Transactions</h2>
+<ul>
+    <li th:each="t : ${transactions}">
+        <span th:text="${t.type}"></span> -
+        <span th:text="${t.name}"></span>:
+        <span th:text="${t.sum}"></span>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-right: 10px;
+        }
+
+        .income {
+            color: green;
+        }
+
+        .expense {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+<h1>Budget summary</h1>
+
+<div class="section">
+    <h2>Free money: <span th:text="${freeMoney}"></span></h2>
+</div>
+
+<div class="section">
+    <h3>Add income</h3>
+    <form method="post" action="/incomes/add">
+        <input type="text" name="name" placeholder="Income name" required>
+        <input type="number" name="sum" placeholder="Amount" required min="1">
+        <button type="submit">Add income</button>
+    </form>
+</div>
+
+<div class="section">
+    <h3>Add expense</h3>
+    <form method="post" action="/expenses/add">
+        <input type="text" name="name" placeholder="Expense name" required>
+        <input type="number" name="sum" placeholder="Amount" required min="1">
+        <button type="submit">Add expense</button>
+    </form>
+</div>
+
+<div class="section">
+    <h3>Transactions</h3>
+    <ul>
+        <li th:each="t : ${transactions}">
+            <span th:if="${t.type.name() == 'INCOME'}" class="income">
+                INCOME — <span th:text="${t.name}"></span>: <span th:text="${t.sum}"></span>
+            </span>
+            <span th:if="${t.type.name() == 'EXPENSE'}" class="expense">
+                EXPENSE — <span th:text="${t.name}"></span>: <span th:text="${t.sum}"></span>
+            </span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

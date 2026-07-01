@@ -1,0 +1,11 @@
+ru\productstar\servlets\controller\ExpenseController.class
+ru\productstar\servlets\config\SecurityConfig.class
+ru\productstar\servlets\config\AppInitConfig.class
+ru\productstar\servlets\filters\ExpensesFilter.class
+ru\productstar\servlets\controller\IncomeController.class
+ru\productstar\servlets\controller\SummaryController.class
+ru\productstar\servlets\model\TransactionType.class
+ru\productstar\servlets\model\Transaction.class
+ru\productstar\servlets\BudgetApplication.class
+ru\productstar\servlets\handler\GlobalExceptionHandler.class
+ru\productstar\servlets\listeners\LogAttributeChanges.class
